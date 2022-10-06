@@ -13,7 +13,7 @@ const routes = [
     name: 'root',
     component: EmptyRouterView,
     redirect: {
-      path: '/dashboard'
+      path: '/login'
     },
     children: [
       {
