@@ -5,7 +5,7 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 const deps = require("./package.json").dependencies;
 module.exports = (_, argv) => ({
   output: {
-    publicPath: argv.mode === "development" ? "http://localhost:8080/" : "https://storage.googleapis.com/nanda-test/testing-micro-fe/dist/",
+    publicPath: argv.mode === "development" ? "http://localhost:8080/" : "https://root-config-three.vercel.app/",
   },
 
   devServer: {
