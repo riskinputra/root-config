@@ -3,9 +3,9 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 
 const deps = require("./package.json").dependencies;
-module.exports = {
+module.exports = (_, argv) => ({
   output: {
-    publicPath: "http://localhost:8080/",
+    publicPath: argv.mode === "development" ? "http://localhost:8080/" : "https://storage.googleapis.com/nanda-test/testing-micro-fe/dist/",
   },
 
   devServer: {
@@ -58,7 +58,8 @@ module.exports = {
       name: "host",
       filename: "remoteEntry.js",
       remotes: {
-        dashboard: `dashboard@http://localhost:8081/remoteEntry.js?time=${new Date().getTime()}`
+        // dashboard: `dashboard@http://localhost:8081/remoteEntry.js?time=${new Date().getTime()}`,
+        dashboard: `dashboard@https://storage.googleapis.com/nanda-test/testing-micro-fe/dist/remoteEntry.js?time=${new Date().getTime()}`
       },
       exposes: {},
       shared: {
@@ -74,4 +75,4 @@ module.exports = {
       template: "./src/index.html",
     }),
   ],
-};
+});
