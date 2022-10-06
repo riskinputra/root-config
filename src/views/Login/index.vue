@@ -5,6 +5,7 @@
         <img src="@/assets/images/logo-stickearn.png" alt="logo-stickearn">
       </div>
       {{ store }}
+      <router-link to="/dashboard">dashboard</router-link>
     </div>
   </div>
 </template>
